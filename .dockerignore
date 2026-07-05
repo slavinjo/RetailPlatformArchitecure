@@ -1,0 +1,13 @@
+**/.git
+**/.gitignore
+**/.vscode
+**/tools
+**/obj
+**/bin
+**/.vs
+**/user_profile
+**/user_secrets
+**/TestResults
+**/*.md
+!**/README.md
+docs/

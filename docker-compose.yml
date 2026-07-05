@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: cart
+      POSTGRES_PASSWORD: cart
+      POSTGRES_DB: cartdb
+    ports:
+      # Host 5433 avoids clashing with a native Postgres on 5432. The API
+      # container still reaches the db via the internal network on 5432.
+      - "5433:5432"
+    volumes:
+      - cart_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cart -d cartdb"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ConnectionStrings__Default: "Host=db;Port=5432;Database=cartdb;Username=cart;Password=cart"
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+volumes:
+  cart_pgdata:
