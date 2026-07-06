@@ -125,4 +125,4 @@ Svaki zahtjev nosi correlation ID (W3C Trace Context ili `X-Correlation-ID`), a 
 
 ## Razvojni pristup
 
-Servis je rađen spec-first. Prvo su nastali vizija ([`docs/ARCHITECTURE_DESIGN.md`](./docs/ARCHITECTURE_DESIGN.md)) i arhitektonske odluke ([`docs/ADR.md`](./docs/ADR.md)), zatim izvršna specifikacija s kriterijima prihvaćanja ([`docs/CART_SPEC.md`](./docs/CART_SPEC.md), §12), a tek onda implementacija koja se u commitovima poziva na pojedine sekcije specifikacije. Git povijest prati tu slojevitost (dizajn, spec, domena, perzistencija, API, testovi, Docker) umjesto jednog završnog commita.
+Servis je rađen spec-first. Prvo su nastali vizija ([`docs/ARCHITECTURE_DESIGN.md`](./docs/ARCHITECTURE_DESIGN.md)) i arhitektonske odluke ([`docs/ADR.md`](./docs/ADR.md)), zatim izvršna specifikacija s kriterijima prihvaćanja ([`docs/CART_SPEC.md`](./docs/CART_SPEC.md), sekcija 12), a tek onda implementacija koja se u commitovima poziva na pojedine sekcije specifikacije. Git povijest prati tu slojevitost (dizajn, spec, domena, perzistencija, API, testovi, Docker) umjesto jednog završnog commita.
